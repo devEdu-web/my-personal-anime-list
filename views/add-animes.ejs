@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Add animes</title>
+</head>
+<body>
+
+    <%- include('./includes/header.ejs') %> 
+
+    <main class="container">
+
+        <form action="/add-anime" method="POST" class="d-flex flex-column justify-content-center align-items-center gap-4">
+            
+
+                <input type="text" name="anime-title" id="anime-title" placeholder="Anime Title">
+
+
+            
+
+                <input type="number" name="score" id="score" placeholder="Anime Score">
+
+            
+
+            
+                <textarea name="comments" id="comments" cols="18" rows="5" placeholder="Comments"></textarea>
+            
+
+
+                <select name="situation" id="situation">
+                    <option value="completed">Completed</option>
+                    <option value="watching">Watching</option>
+                    <option value="Dropped">Dropped</option>
+                </select>
+
+            
+            <button type="submit" class="">Send</button>
+
+        </form>
+
+    </main>
+    
+</body>
+</html>

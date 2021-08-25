@@ -1,0 +1,63 @@
+body {
+    background-color: #02020A;
+    color: white;
+}
+
+li {
+    font-size: 1.5em;
+}
+
+.active {
+    color: #E28413;
+}
+
+.active:hover {
+    color: #E28413;
+}
+
+input {
+    border-radius: 100px;
+}
+
+textarea {
+    border-radius: 10px;
+}
+
+input[type="number"], input[type="text"], textarea {
+    padding: 10px 15px;
+    background-color: #02020A;
+    color: white;
+
+    
+    border: 1px solid rgba(255, 255, 255, 0.582);
+    outline: none;
+}
+
+input, textarea {
+    width: 30%;
+}
+
+form button {
+    background-color: #E28413;
+    border: none;
+    border-radius: 100px;
+    padding: 5px 20px;
+    color: white;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    input, textarea {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    input, textarea {
+        width: 80%;
+    }
+
+    li {
+        font-size: 1em;
+    }
+}
