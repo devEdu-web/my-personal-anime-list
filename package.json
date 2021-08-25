@@ -1,0 +1,27 @@
+{
+  "name": "my-personal-anime-list",
+  "version": "1.0.0",
+  "description": "An application where I can manage the animes I've watched or watching.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devEdu-web/my-personal-anime-list.git"
+  },
+  "author": "Eduardo Oliveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devEdu-web/my-personal-anime-list/issues"
+  },
+  "homepage": "https://github.com/devEdu-web/my-personal-anime-list#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
