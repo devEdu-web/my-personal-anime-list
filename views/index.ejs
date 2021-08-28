@@ -30,16 +30,20 @@
 
             <tbody>
 
+                <% for(let i = 0; i < animes.length; i++) { %> 
+
                 <tr>
                     <td class="d-flex justify-content-between">
-                        <span>1</span>
+                        <span><%= i + 1 %> </span>
                             <button class="btn-close btn-close-white" type="button" aria-label="Close"></button>
                     </td>
-                    <td>Toradora</td>
-                    <td>Completed</td>
-                    <td>9</td>
-                    <td>Fucking good</td>
+                    <td><%= animes[i].title %> </td>
+                    <td><%= animes[i].situation %> </td>
+                    <td><%= animes[i].score %> </td>
+                    <td><%= animes[i].comments %> </td>
                 </tr>
+
+                <% } %> 
 
             </tbody>
 
