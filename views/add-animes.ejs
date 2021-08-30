@@ -12,7 +12,7 @@
 
     <%- include('./includes/header.ejs') %> 
 
-    <main class="container">
+    <main>
 
         <form action="/add-anime" method="POST" class="d-flex flex-column justify-content-center align-items-center gap-4">
             
@@ -31,7 +31,7 @@
             
 
 
-                <select name="situation" id="situation">
+                <select name="situation" id="situation" class="form-select form-select-sm w-25" aria-label="Default select example">
                     <option value="Completed">Completed</option>
                     <option value="Watching">Watching</option>
                     <option value="Dropped">Dropped</option>
