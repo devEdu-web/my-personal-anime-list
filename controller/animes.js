@@ -12,7 +12,8 @@ exports.getAnimeList = (req, res, next) => {
 
 exports.getAddAnime = (req, res, next) => {
     res.render('add-animes.ejs', {
-        path: '/add-anime'
+        path: '/add-anime',
+        isEditing: false
     })
 }
 
@@ -24,7 +25,7 @@ exports.postAnime = (req, res, next) => {
         comments: req.body.comments, 
         situation: req.body.situation
     }
-    const currentAnime = new Anime(incomingAnime.title, incomingAnime.situation, incomingAnime.score, incomingAnime.comments)
+    const currentAnime = new Anime(null, incomingAnime.title, incomingAnime.situation, incomingAnime.score, incomingAnime.comments)
     currentAnime.save()
 
     // console.log()
@@ -37,4 +38,30 @@ exports.deleteAnime = (req, res, next) => {
         res.redirect('/')
     })
     // res.redirect('/')
+}
+
+exports.editAnimePage = (req, res, next) => {
+    const animeId = req.params.animeId
+    const isEdited = req.query.edit
+
+    if(!isEdited) {
+        res.redirect('/')
+    } else {
+        Anime.findAnimeById(animeId, anime => {
+            res.render('add-animes', {
+                path: '/edit-anime',
+                isEditing: true,
+                anime: anime
+            })
+        })
+    }
+
+}
+
+exports.editAnime = (req, res, next) => {
+    const animeInfo = req.body
+    // res.send(animeInfo)
+    const updatedAnime = new Anime(animeInfo.animeId, animeInfo.title, animeInfo.situation, animeInfo.score, animeInfo.comments)
+    updatedAnime.save()
+    res.redirect('/')
 }

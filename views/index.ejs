@@ -25,6 +25,7 @@
                     <th>Situation</th>
                     <th>Score</th>
                     <th>Comments</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
 
@@ -34,16 +35,19 @@
 
                 <tr>
                     <td class="d-flex justify-content-between">
-                        <span><%= i + 1 %> </span>
-                        <form action="/delete-anime/<%=animes[i].id%>" method="POST" class="delete-form">
-                            <button class="btn-close btn-close-white delete" type="submit" aria-label="Close"></button>
-                        </form>
-                            
+                        <span><%= i + 1 %> </span>                            
                     </td>
                     <td><%= animes[i].title %> </td>
                     <td><%= animes[i].situation %> </td>
                     <td><%= animes[i].score %> </td>
                     <td><%= animes[i].comments %> </td>
+                    <td>
+                        <!-- <form action="/delete-anime/<%=animes[i].id%>" method="POST" class="delete-form"> -->
+                            <a href="/edit-anime/<%= animes[i].id %>?edit=true"><img src="/images/edit-icon10x10.png" alt="" class="edit-image"></a>
+                            <a href="/"><img src="/images/close.png" alt="" class="close-image"></a>
+                            <!-- <button class="btn-close btn-close-white delete" type="submit" aria-label="Close"></button> -->
+                        <!-- </form> -->
+                    </td>
                 </tr>
 
                 <% } %> 
