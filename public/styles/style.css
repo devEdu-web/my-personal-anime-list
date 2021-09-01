@@ -48,6 +48,11 @@ textarea {
     /* margin-left: 10px; */
 }
 
+.col {
+    border: 1px solid black;
+    color: white;
+}
+
 
 input[type="number"], input[type="text"], textarea {
     padding: 10px 15px;
