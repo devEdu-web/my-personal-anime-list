@@ -16,12 +16,13 @@ const getAnimes = (callback) => {
 }
 
 module.exports = class Anime {
-    constructor(id, title, situation, score, comments) {
+    constructor(id, title, situation, score, comments, imgurl) {
         this.id = id
         this.title = title,
         this.situation = situation,
         this.score = score,
         this.comments = comments
+        this.imgUrl = imgurl
     }
 
     save() {
@@ -29,6 +30,7 @@ module.exports = class Anime {
         getAnimes(animes => {
             if(this.id) {
                 const existingAnimeIndex = animes.findIndex(anime => Number(anime.id) === Number(this.id))
+                console.log(animes[existingAnimeIndex])
                 const updatedAnimes = [...animes]
                 updatedAnimes[existingAnimeIndex] = this
                 fs.writeFile(filePath, JSON.stringify(updatedAnimes), (err) => {
@@ -38,7 +40,7 @@ module.exports = class Anime {
                 }) 
 
             } else {
-                console.log(this)
+                // console.log(this)
                 this.id = Math.random().toString()
                 animes.push(this)
                 fs.writeFile(filePath, JSON.stringify(animes), (err) => {

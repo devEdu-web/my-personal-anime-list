@@ -1,5 +1,5 @@
 body {
-    background-image: url('../images/csd.jpg');
+    background-image: url('../images/background.jpg');
     background-size: cover;
     /* color: white; */
 }
@@ -49,10 +49,23 @@ textarea {
 }
 
 .col {
-    border: 1px solid black;
+    border: 1px solid rgba(255, 255, 255, 0.322);
     color: white;
 }
 
+.card {
+    width: 25%;
+
+}
+
+.list-group-item, .card{
+    background-color: rgba(0, 0, 0, 0.438);
+    color: white;
+}
+
+.anime-info {
+    font-size: 0.9rem;
+}
 
 input[type="number"], input[type="text"], textarea {
     padding: 10px 15px;
@@ -72,7 +85,7 @@ select {
     width: 10%;
 }
 
-form button {
+form .send-Anime {
     background-color: #E28413;
     border: none;
     border-radius: 100px;
@@ -85,6 +98,10 @@ form button {
     input, textarea {
         width: 50%;
     }
+
+    .card {
+        width: 45%;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -94,5 +111,8 @@ form button {
 
     li {
         font-size: 1em;
+    }
+    .card {
+        width: 100%;
     }
 }

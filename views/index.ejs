@@ -12,51 +12,43 @@
     
     <%- include('./includes/header.ejs') %> 
 
+    <main class="container d-flex gap-3 flex-wrap justify-content-center">
 
-    <main class="container table-responsive">
+
+        <% for(let i = 0; i < animes.length; i++) {%> 
+
+            <div class="card d-inline-block">
+                <img class="card-image-top img-fluid" src="<%= animes[i].imgUrl %>" alt="">
+                <div class="card-body">
+                    <h5 class="card-title"><%= animes[i].title %> </h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item anime-info">Score: <%= animes[i].score %> </li>
+                    <li class="list-group-item anime-info"><%= animes[i].situation %> </li>
+                    <li class="list-group-item anime-info">
+
+                        <% if (animes[i].comments) { %>
+                            <%= animes[i].comments %> 
+                        <% } else { %>
+                            No comments 
+                        <% } %> 
+
+                    </li>
+                </ul>
 
 
-        <table class="table  table-sm table-dark table-bordered table-striped">
+                <div class="card-body d-flex">
+                    <a href="/edit-anime/<%= animes[i].id %>?edit=true" class="btn text-warning">Edit</a>
 
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Situation</th>
-                    <th>Score</th>
-                    <th>Comments</th>
-                    <th>Edit</th>
-                </tr>
-            </thead>
+                    <form action="delete-anime" method="POST">
+                        <input type="hidden" name="animeId" value="<%= animes[i].id %> ">
+                        <button class="btn text-danger">Delete</button>
+                    </form>
+                </div>
 
-            <tbody>
+            </div>
 
-                <% for(let i = 0; i < animes.length; i++) { %> 
-
-                <tr>
-                    <td class="d-flex justify-content-between">
-                        <span><%= i + 1 %> </span>                            
-                    </td>
-                    <td><%= animes[i].title %> </td>
-                    <td><%= animes[i].situation %> </td>
-                    <td><%= animes[i].score %> </td>
-                    <td><%= animes[i].comments %> </td>
-                    <td>
-                        <!-- <form action="/delete-anime/<%=animes[i].id%>" method="POST" class="delete-form"> -->
-                            <a href="/edit-anime/<%= animes[i].id %>?edit=true"><img src="/images/edit-icon10x10.png" alt="" class="edit-image"></a>
-                            <a href="/"><img src="/images/close.png" alt="" class="close-image"></a>
-                            <!-- <button class="btn-close btn-close-white delete" type="submit" aria-label="Close"></button> -->
-                        <!-- </form> -->
-                    </td>
-                </tr>
-
-                <% } %> 
-
-            </tbody>
-
-        </table>
-
-        
+        <% } %> 
 
     </main>
 

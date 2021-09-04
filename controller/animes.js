@@ -23,9 +23,10 @@ exports.postAnime = (req, res, next) => {
         title: req.body.title,
         score: req.body.score,
         comments: req.body.comments, 
-        situation: req.body.situation
+        situation: req.body.situation,
+        imgUrl: req.body.imageUrl
     }
-    const currentAnime = new Anime(null, incomingAnime.title, incomingAnime.situation, incomingAnime.score, incomingAnime.comments)
+    const currentAnime = new Anime(null, incomingAnime.title, incomingAnime.situation, incomingAnime.score, incomingAnime.comments, incomingAnime.imgUrl)
     currentAnime.save()
 
     // console.log()
@@ -33,11 +34,10 @@ exports.postAnime = (req, res, next) => {
 }
 
 exports.deleteAnime = (req, res, next) => {
-    const animeId = req.params.animeId
+    const animeId = req.body.animeId
     Anime.delete(animeId, () => {
         res.redirect('/')
     })
-    // res.redirect('/')
 }
 
 exports.editAnimePage = (req, res, next) => {
@@ -45,7 +45,8 @@ exports.editAnimePage = (req, res, next) => {
     const isEdited = req.query.edit
 
     if(!isEdited) {
-        res.redirect('/')
+        // res.redirect('/')
+        res.send('tá falso mano')
     } else {
         Anime.findAnimeById(animeId, anime => {
             res.render('add-animes', {
@@ -60,8 +61,9 @@ exports.editAnimePage = (req, res, next) => {
 
 exports.editAnime = (req, res, next) => {
     const animeInfo = req.body
+    
     // res.send(animeInfo)
-    const updatedAnime = new Anime(animeInfo.animeId, animeInfo.title, animeInfo.situation, animeInfo.score, animeInfo.comments)
+    const updatedAnime = new Anime(animeInfo.animeId, animeInfo.title, animeInfo.situation, animeInfo.score, animeInfo.comments, animeInfo.imageUrl)
     updatedAnime.save()
     res.redirect('/')
 }

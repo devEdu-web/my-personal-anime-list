@@ -11,14 +11,10 @@ router.get('/add-animes', animesController.getAddAnime)
 
 router.post('/add-anime', animesController.postAnime)
 
-router.post('/delete-anime/:animeId', animesController.deleteAnime)
-
 router.get('/edit-anime/:animeId', animesController.editAnimePage)
 
 router.post('/edit-anime', animesController.editAnime)
 
-
-
-
+router.post('/delete-anime', animesController.deleteAnime)
 
 module.exports = router
